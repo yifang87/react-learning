@@ -176,6 +176,34 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
+var onClickAdd = function onClickAdd() {
+  //テキストボックスの値を取得する
+  var inputText = document.getElementById("add-text").value;
+  document.getElementById("add-text").value = "";
+
+  //div生成
+  var div = document.createElement("div");
+  div.className = "row";
+  //li生成
+  var li = document.createElement("li");
+  li.innerText = inputText;
+  //完了ボタン生成
+  var completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", function () {});
+  var deleteButton = document.createElement("button");
+  completeButton.innerText = "削除";
+  deleteButton.addEventListener("click", function () {});
+
+  //divの子要素に各要素を設定
+  div.appendChild(li);
+  div.appendChild(completeButton);
+  div.appendChild(deleteButton);
+  document.getElementById("incompete-list").appendChild(div);
+};
+document.getElementById("add-button").addEventListener("click", function () {
+  return onClickAdd();
+});
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -201,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35791" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33111" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
