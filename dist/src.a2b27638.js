@@ -193,7 +193,11 @@ var onClickAdd = function onClickAdd() {
   completeButton.addEventListener("click", function () {});
   var deleteButton = document.createElement("button");
   completeButton.innerText = "削除";
-  deleteButton.addEventListener("click", function () {});
+  deleteButton.addEventListener("click", function () {
+    //親タグのdivを未完了リストから削除
+    var deleteTarget = deleteButton.parentNode;
+    document.get("incomplete-list").removeChild(deleteTarget);
+  });
 
   //divの子要素に各要素を設定
   div.appendChild(li);
